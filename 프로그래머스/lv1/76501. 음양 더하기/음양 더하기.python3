@@ -1,0 +1,8 @@
+def solution(absolutes, signs):
+    sum =0
+    for i, v in enumerate(absolutes):
+        if signs[i]:
+            sum=sum+v
+        else:
+            sum=sum-v 
+    return sum
