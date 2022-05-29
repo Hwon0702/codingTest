@@ -1,0 +1,5 @@
+def solution(arr):
+    sum = 0
+    for v in arr:
+        sum+=v
+    return sum/len(arr)
