@@ -1,0 +1,6 @@
+def solution(s):
+    arr = list(s)
+    if len(arr)%2!=0:
+        return arr[int(len(arr)/2)]
+    else:
+        return arr[int(len(arr)/2)-1]+arr[int(len(arr)/2)]
