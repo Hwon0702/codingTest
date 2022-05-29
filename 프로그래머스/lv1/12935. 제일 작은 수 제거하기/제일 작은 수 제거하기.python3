@@ -1,0 +1,18 @@
+import copy
+
+def solution(arr):
+    tmp = copy.deepcopy(arr)
+    tmp.sort()
+    min=tmp[0]
+    appended = False
+    returns = []
+    for v in arr:
+        if v== min and appended==False:
+            appended = True
+            continue
+        else:
+            returns.append(v)
+    if len(returns)<=1:
+        returns.append(-1)
+    
+    return returns
