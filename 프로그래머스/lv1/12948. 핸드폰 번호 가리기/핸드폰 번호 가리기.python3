@@ -1,0 +1,9 @@
+def solution(s):
+    arr = list(s)
+    ret = ''
+    for i, v in  enumerate(arr):
+        if i<len(arr)-4:
+            ret+="*"
+        else:
+            ret+=v
+    return ret
