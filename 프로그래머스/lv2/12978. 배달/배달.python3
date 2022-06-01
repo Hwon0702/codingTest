@@ -1,0 +1,46 @@
+import heapq  # 우선순위 큐 구현을 위함
+
+def dijkstra(graph, start):
+  distances = {node: float('inf') for node in graph}  
+  distances[start] = 0  
+  queue = []
+  heapq.heappush(queue, [distances[start], start])  
+
+  while queue: 
+    current_distance, current_destination = heapq.heappop(queue)  
+
+    if distances[current_destination] < current_distance:  
+      continue
+    
+    for new_destination, new_distance in graph[current_destination].items():
+      distance = current_distance + new_distance 
+      if distance < distances[new_destination]: 
+        distances[new_destination] = distance
+        heapq.heappush(queue, [distance, new_destination])  
+    
+  return distances
+
+def solution(N, road, K):
+    graph = {}
+    for i in range( N):
+        graph[str(i+1)]={}
+    for i in road: #여기에 여러개 있을 때의 처리 필요
+        if graph[str(i[0])] and str(i[1]) in graph[str(i[0])] and graph[str(i[0])][str(i[1])]>i[2]:
+            graph[str(i[0])][str(i[1])]=i[2]
+            graph[str(i[1])][str(i[0])]=i[2]
+        elif graph[str(i[0])] and str(i[1]) in graph[str(i[0])] and graph[str(i[0])][str(i[1])]<i[2]:
+            continue
+        else:
+            graph[str(i[0])][str(i[1])]=i[2]
+            graph[str(i[1])][str(i[0])]=i[2]   
+
+    res = dijkstra(graph,'1') 
+    sum = 0
+    sort_v= sorted(res.items(), key=lambda x: x[1])
+    for _, v in sort_v:
+        if v<=K:
+            sum+=1 
+    #N: 마을 갯수(총 graph의 길이)
+    #road : 그래프
+    #K: max
+    return sum
