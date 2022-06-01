@@ -24,23 +24,17 @@ def solution(N, road, K):
     graph = {}
     for i in range( N):
         graph[str(i+1)]={}
-    for i in road: #여기에 여러개 있을 때의 처리 필요
-        if graph[str(i[0])] and str(i[1]) in graph[str(i[0])] and graph[str(i[0])][str(i[1])]>i[2]:
-            graph[str(i[0])][str(i[1])]=i[2]
-            graph[str(i[1])][str(i[0])]=i[2]
-        elif graph[str(i[0])] and str(i[1]) in graph[str(i[0])] and graph[str(i[0])][str(i[1])]<i[2]:
+    for i in road: #여기에 여러개 있을 때의 처리 
+        if graph[str(i[0])] and str(i[1]) in graph[str(i[0])] and graph[str(i[0])][str(i[1])]<i[2]: #길이 여러개 있고, 지금 있는 값이 새로 온 값보다 작음. 그냥 넘어감
             continue
-        else:
+        else: #길이 없을 때.
             graph[str(i[0])][str(i[1])]=i[2]
             graph[str(i[1])][str(i[0])]=i[2]   
 
-    res = dijkstra(graph,'1') 
+    res = dijkstra(graph,'1')  #시작노드
     sum = 0
-    sort_v= sorted(res.items(), key=lambda x: x[1])
+    sort_v= sorted(res.items(), key=lambda x: x[1]) #결과값 기준으로 sort
     for _, v in sort_v:
-        if v<=K:
+        if v<=K: #최장시간 내에 가능하다면
             sum+=1 
-    #N: 마을 갯수(총 graph의 길이)
-    #road : 그래프
-    #K: max
     return sum
