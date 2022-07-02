@@ -24,14 +24,7 @@ func main() {
 			min = 1
 			break
 		}
-
 		for j := i + 1; j < n; j++ {
-			if sum >= s {
-				if j-i < min {
-					min = j - i
-				}
-				break
-			}
 			sum += numbers[j]
 			if sum >= s {
 				if j-i < min {
@@ -39,10 +32,6 @@ func main() {
 				}
 				break
 			}
-		}
-
-		if min == 1 {
-			break
 		}
 	}
 	if min >= 100000002 {
