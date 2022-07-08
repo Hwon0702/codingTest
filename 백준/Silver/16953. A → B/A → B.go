@@ -20,8 +20,6 @@ func minus(n int) int {
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	writer := bufio.NewWriter(os.Stdout)
-	defer writer.Flush()
 	var start, result, count int
 	count = 1
 	fmt.Fscanf(reader, "%d %d\n", &start, &result)
@@ -32,7 +30,7 @@ func main() {
 		} else {
 			result = minus(result)
 		}
-		if result == start {
+		if result == start || result == 0 {
 			break
 		}
 	}
