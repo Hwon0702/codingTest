@@ -23,7 +23,7 @@ func main() {
 	var start, result, count int
 	count = 1
 	fmt.Fscanf(reader, "%d %d\n", &start, &result)
-	for result == start || result > 0 {
+	for result != start || result > 0 {
 		count++
 		if result%2 == 0 {
 			result = mod(result)
