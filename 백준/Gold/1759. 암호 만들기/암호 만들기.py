@@ -12,7 +12,7 @@ for s in str_list :
         vowel_target.append(s)
     else:
         consonant_target.append(s)
-if len(str_list)>0:
+if len(vowel_target)>0:
     res_result = []
     for i in range(1, len(consonant_target)+1):
         if l-i>=2:
@@ -29,5 +29,3 @@ if len(str_list)>0:
     res_result.sort()
     for v in res_result:
         print(v)
-
-
