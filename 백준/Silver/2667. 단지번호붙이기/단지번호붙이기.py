@@ -8,7 +8,7 @@ def bfs(graph, x, y):
     dy = [0,0,-1,1]
     queue = deque()
     queue.append((x,y))
-    graph[x][y] = 0 
+    graph[x][y] = '0' 
     cnt = 1   
     while queue:
         x,y = queue.popleft()
