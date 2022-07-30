@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func main() {
@@ -22,10 +21,9 @@ func main() {
 	}
 	for i := 0; i < m; i++ {
 		fmt.Fscanf(reader, "%s\n", &comstring)
-
 		for _, v := range targets {
-			if strings.HasPrefix(v, comstring) {
-				eq += 1
+			if len(v) >= len(comstring) && v[0:len(comstring)] == comstring {
+				eq++
 				break
 			}
 		}
