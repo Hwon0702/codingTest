@@ -9,8 +9,8 @@ import (
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	writer := bufio.NewWriter(os.Stdout)
-	defer writer.Flush()
+	//writer := bufio.NewWriter(os.Stdout)
+	//defer writer.Flush()
 	var s1, s2 string
 	fmt.Fscanf(reader, "%s\n%s\n", &s1, &s2)
 	s1Arr := strings.Split(s1, "")
@@ -33,8 +33,8 @@ func main() {
 		}
 	}
 	if len(res[len(s1)][len(s2)]) > 0 {
-		fmt.Fprintf(writer, "%d\n%s\n", len(res[len(s1)][len(s2)]), res[len(s1)][len(s2)])
+		fmt.Printf("%d\n%s\n", len(res[len(s1)][len(s2)]), res[len(s1)][len(s2)])
 	} else {
-		fmt.Fprintf(writer, "%d\n", 0)
+		fmt.Printf("%d\n", 0)
 	}
 }
