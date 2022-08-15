@@ -19,7 +19,6 @@ func main() {
 	for i := 0; i < n; i++ {
 		fmt.Fscanf(reader, "%s\n", &numbers[i])
 	}
-
 	for _, str := range numbers {
 		strArr := strings.Split(str, "")
 		cnt := float64(len(strArr)) - 1
@@ -36,14 +35,11 @@ func main() {
 	for _, v := range numMap {
 		values = append(values, v)
 	}
-	sort.Slice(values, func(i, j int) bool {
-		return values[i] > values[j]
-	})
+	sort.Sort(sort.Reverse(sort.Float64Slice(values)))
 	num = 9
 	for _, v := range values {
 		res += v * num
 		num--
 	}
-
 	fmt.Printf("%0.f\n", res)
 }
