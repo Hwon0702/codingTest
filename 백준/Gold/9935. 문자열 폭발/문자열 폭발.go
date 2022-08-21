@@ -20,10 +20,8 @@ func main() {
 		stack = append(stack, s)
 		if len(stack) < length {
 			continue
-		} else if string(s) == last {
-			if string(stack[len(stack)-length:]) == rem {
-				stack = stack[:len(stack)-length]
-			}
+		} else if string(s) == last && string(stack[len(stack)-length:]) == rem {
+			stack = stack[:len(stack)-length]
 		}
 	}
 	if len(stack) > 0 {
