@@ -8,24 +8,24 @@ import (
 
 type Queue struct {
 	Node   []int
-	Direct []int
+	Dist []int
 }
 
 func (q *Queue) Enqueue(n, d int) {
 	q.Node = append(q.Node, n)
-	q.Direct = append(q.Direct, d)
+	q.Dist = append(q.Dist, d)
 }
 func (q *Queue) Dequeue() (n, d int) {
 	if len(q.Node) > 0 {
 		n = q.Node[0]
-		d = q.Direct[0]
+		d = q.Dist[0]
 
 		if len(q.Node) > 1 {
 			q.Node = q.Node[1:]
-			q.Direct = q.Direct[1:]
+			q.Dist = q.Dist[1:]
 		} else {
 			q.Node = []int{}
-			q.Direct = []int{}
+			q.Dist = []int{}
 		}
 		return n, d
 	} else {
