@@ -1,7 +1,5 @@
 import sys 
 input = sys.stdin.readline
-sys.setrecursionlimit(10**6)
-
 tc = int(input())
 for _ in range(tc):
     width = int(input())
