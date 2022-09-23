@@ -58,7 +58,7 @@ func main() {
 	}
 	sort.Slice(jewels, func(i, j int) bool { return jewels[i].weight < jewels[j].weight })
 	for i := 0; i < k; i++ {
-		fmt.Fscanf(reader, "%d ", &bags[i])
+		fmt.Fscanf(reader, "%d\n", &bags[i])
 	}
 	sort.Slice(bags, func(i, j int) bool { return bags[i] < bags[j] })
 	i := 0
