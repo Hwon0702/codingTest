@@ -35,5 +35,5 @@ func main() {
 			nums[end] = v
 		}
 	}
-	fmt.Println(len(nums) - 1)
+	fmt.Fprintf(writer, "%d", len(nums) - 1)
 }
