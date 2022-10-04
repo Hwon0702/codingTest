@@ -1,0 +1,65 @@
+package main
+
+import (
+	"bufio"
+	"container/heap"
+	"fmt"
+	"os"
+	"sort"
+)
+
+type IntHeap []int
+
+func (h IntHeap) Len() int {
+	return len(h)
+}
+
+func (h IntHeap) Less(i, j int) bool {
+	return h[i] < h[j]
+}
+
+func (h IntHeap) Swap(i, j int) {
+	h[i], h[j] = h[j], h[i]
+}
+
+func (h *IntHeap) Push(elem interface{}) {
+	*h = append(*h, elem.(int))
+}
+
+func (h *IntHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	elem := old[n-1]
+	*h = old[0 : n-1]
+	return elem
+}
+
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	writer := bufio.NewWriter(os.Stdout)
+	defer writer.Flush()
+	var tc int
+	fmt.Fscanf(reader, "%d\n", &tc)
+	var intHeap = new(IntHeap)
+	var queue = [][]int{}
+	var s, e int
+	heap.Init(intHeap)
+	for i := 0; i < tc; i++ {
+		fmt.Fscanf(reader, "%d %d\n", &s, &e)
+		queue = append(queue, []int{s, e})
+	}
+	sort.Slice(queue, func(i, j int) bool {
+		return queue[i][0] < queue[j][0]
+	})
+	heap.Push(intHeap, queue[0][1])
+	for i := 1; i < tc; i++ {
+		v := heap.Pop(intHeap).(int)
+		if queue[i][0] < v {
+			heap.Push(intHeap, queue[i][1])
+			heap.Push(intHeap, v)
+		} else {
+			heap.Push(intHeap, queue[i][1])
+		}
+	}
+	fmt.Fprintf(writer, "%d\n", len(*intHeap))
+}
