@@ -12,12 +12,8 @@ for y in range(n):
             cities.append([x, y])
         elif x_list[x]==2:
             chickens.append([x, y])
-dirs = [[float('inf') for _ in range(len(cities))] for _ in range(len(chickens))]
-chicken_idx = [i for i in range(len(chickens))]
 remain_chicken = []
-for i in range(0, m+1):
-    remain_chicken.append(list(combinations(chicken_idx, i)))
-chicken_dir  =float('inf')
+chicken_dir = float('inf')
 remain_chicken = list(combinations(chickens,m))
 for remain in remain_chicken:
     city_dir =0
