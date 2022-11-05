@@ -1,8 +1,9 @@
 from collections import deque
 import sys 
 input = sys.stdin.readline
-
 def bfs(start_x, start_y):
+    visited = [[False for _ in range(w)]for _ in range(h)]
+    visited[start_x][start_y] = True
     q = deque()
     q.append([start_x, start_y])
     max_cost = 0
@@ -31,8 +32,6 @@ for i in range(h):
 for i in range(h):
     for j in range(w):
         if graph[i][j]=='L':
-            visited = [[False for _ in range(w)]for _ in range(h)]
             res[i][j] = 0
-            visited[i][j] = True
             result = max(result, bfs(i, j))
 print(result)
