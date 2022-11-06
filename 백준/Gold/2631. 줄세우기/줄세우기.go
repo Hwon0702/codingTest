@@ -31,9 +31,7 @@ func main() {
 		}
 	}
 	for _, v := range res {
-		if v > max {
-			max = math.Max(v, max)
-		}
+		max = math.Max(v, max)
 	}
 	fmt.Fprintf(writer, "%0.f", float64(n)-max)
 }
