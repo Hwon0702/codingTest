@@ -1,4 +1,4 @@
-# [Silver I] 생태학 - 4358 
+# [Silver II] 생태학 - 4358 
 
 [문제 링크](https://www.acmicpc.net/problem/4358) 
 

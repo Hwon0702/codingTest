@@ -1,4 +1,4 @@
-# [Silver IV] 조합 - 2407 
+# [Silver III] 조합 - 2407 
 
 [문제 링크](https://www.acmicpc.net/problem/2407) 
 

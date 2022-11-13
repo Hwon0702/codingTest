@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 )
 
@@ -14,23 +15,19 @@ func main() {
 	fmt.Fscanf(reader, "%d\n", &n)
 	var length = make([]int, n+1)
 	var oil = make([]int, n+1)
-	var nowOil = 0
-	var price int
+	var result = make([]int, n+1)
 	for i := 2; i <= n; i++ {
 		fmt.Fscanf(reader, "%d ", &length[i])
 	}
 	for i := 1; i <= n; i++ {
 		fmt.Fscanf(reader, "%d ", &oil[i])
 	}
-	nowOil = oil[1]
-	price += oil[1] * length[2]
-
-	for i := 3; i < len(length); i++ {
-		if oil[i-1] < nowOil {
-			nowOil = oil[i-1]
-		}
-		price += nowOil * length[i]
-
+	for i := 1; i < len(result); i++ {
+		result[i] = 10000000
 	}
-	fmt.Println(price)
+	result[2] = oil[1] * length[2] //0부터 1까지 가는 비용. 처음엔 무조건 곱해야함
+	for i := 3; i < len(length); i++ {
+		result[i] = int(math.Min(float64(result[i-1]+oil[i-2]*length[i]), float64(result[i-1]+oil[i-1]*length[i])))
+	}
+	fmt.Println(result[n])
 }

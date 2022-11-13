@@ -8,7 +8,7 @@
 
 ### 분류
 
-브루트포스 알고리즘(bruteforcing), 그리디 알고리즘(greedy), 문자열(string)
+브루트포스 알고리즘(bruteforcing), 문자열(string)
 
 ### 문제 설명
 

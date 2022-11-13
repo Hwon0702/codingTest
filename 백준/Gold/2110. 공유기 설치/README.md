@@ -1,4 +1,4 @@
-# [Gold V] 공유기 설치 - 2110 
+# [Gold IV] 공유기 설치 - 2110 
 
 [문제 링크](https://www.acmicpc.net/problem/2110) 
 

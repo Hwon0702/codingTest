@@ -1,4 +1,4 @@
-# [Silver I] 골드바흐의 추측 - 9020 
+# [Silver II] 골드바흐의 추측 - 9020 
 
 [문제 링크](https://www.acmicpc.net/problem/9020) 
 

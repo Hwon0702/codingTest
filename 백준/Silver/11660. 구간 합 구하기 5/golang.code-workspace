@@ -1,0 +1,15 @@
+{
+    "folders": [
+        {
+            "name": "golang",
+            "path": "../../../../golang"
+        },
+        {
+            "name": "codingTest",
+            "path": "../../.."
+        },
+        {
+            "path": "../../../../god-life-frontend"
+        }
+    ]
+}

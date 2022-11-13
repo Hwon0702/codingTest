@@ -1,4 +1,4 @@
-# [Silver III] GCD 합 - 9613 
+# [Silver IV] GCD 합 - 9613 
 
 [문제 링크](https://www.acmicpc.net/problem/9613) 
 
@@ -8,7 +8,7 @@
 
 ### 분류
 
-브루트포스 알고리즘(bruteforcing), 유클리드 호제법(euclidean), 수학(math), 정수론(number_theory)
+유클리드 호제법(euclidean), 수학(math), 정수론(number_theory)
 
 ### 문제 설명
 

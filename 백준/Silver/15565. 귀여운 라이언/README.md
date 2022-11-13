@@ -8,7 +8,7 @@
 
 ### 분류
 
-두 포인터(two_pointer)
+슬라이딩 윈도우(sliding_window), 두 포인터(two_pointer)
 
 ### 문제 설명
 

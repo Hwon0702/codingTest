@@ -1,4 +1,4 @@
-# [Gold III] 중복 제거 - 13701 
+# [Gold IV] 중복 제거 - 13701 
 
 [문제 링크](https://www.acmicpc.net/problem/13701) 
 

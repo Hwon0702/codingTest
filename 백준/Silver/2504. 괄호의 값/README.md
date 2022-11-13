@@ -4,11 +4,11 @@
 
 ### 성능 요약
 
-메모리: 916 KB, 시간: 4 ms
+메모리: 920 KB, 시간: 8 ms
 
 ### 분류
 
-자료 구조(data_structures), 구현(implementation), 재귀(recursion), 스택(stack)
+자료 구조(data_structures), 구현(implementation), 스택(stack)
 
 ### 문제 설명
 

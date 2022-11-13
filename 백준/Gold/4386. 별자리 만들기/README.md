@@ -1,4 +1,4 @@
-# [Gold IV] 별자리 만들기 - 4386 
+# [Gold III] 별자리 만들기 - 4386 
 
 [문제 링크](https://www.acmicpc.net/problem/4386) 
 
