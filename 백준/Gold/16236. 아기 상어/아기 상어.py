@@ -6,12 +6,10 @@ n = int(input())
 graph = []
 sx, sy = 0,0
 now_size=2
-dx = [0,0,-1,1]
-dy = [-1,1,0,0]
-min_cnt=999999
+dx = [-1,1,0,0]
+dy = [0,0,-1,1]
 time = 0
 def find(sx, sy):
-    #print("SIZE",  sx, sy, now_size)
     visited= [[False for _ in range(n)]for _ in range(n)]
     q = deque()
     q.append([sx, sy, 0])
@@ -30,9 +28,6 @@ def find(sx, sy):
     targets.sort()
     return targets
 
-
-
-
 for i in range(n):
     tmp=list(map(int, input().split()))
     for j in range(n):
@@ -41,18 +36,17 @@ for i in range(n):
             tmp[j]=0
     graph.append(tmp)
 break_flag=False
-while min_cnt>0 and  not break_flag:
+while  not break_flag:
     for _ in range(now_size):
         graph[sx][sy]=0
         res = find(sx, sy)
         if len(res)<=0:
             break_flag=True
             break
+        time+=res[0][0]
         sx = res[0][1]
         sy = res[0][2]
-        min_cnt = res[0][0]
         graph[sx][sy]=0
-        time+=min_cnt
 
     now_size+=1
 print(time)
