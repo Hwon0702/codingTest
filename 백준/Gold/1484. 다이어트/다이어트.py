@@ -8,13 +8,14 @@ l, r = 1,1
 not_answer = True
 
 while l+r <= g:
-    if cal(l,r) == g :
+    v=cal(l,r) 
+    if v == g :
         print(l)
         l +=1
         not_answer = False
-    elif cal(l,r) > g :
+    elif v > g :
         r +=1
-    elif cal(l,r) < g :
+    elif v < g :
         l +=1
 
 if not_answer :
