@@ -9,8 +9,8 @@ def find(s):
     q = deque()
     cost = [999 for _ in range(n+1)]
     visited = [False for _ in range(n+1)]
-    visited[0]=False
-    visited[s]=False
+    visited[0]=True
+    visited[s]=True
     q.append(s)
     cost[s]=0
     while q:
