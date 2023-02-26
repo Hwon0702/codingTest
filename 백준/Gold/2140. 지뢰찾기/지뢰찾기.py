@@ -9,7 +9,6 @@ n = int(input())
 q = deque()
 boards = []
 bomb = [[0 for _ in range(n)]for _ in range(n)]
-visited = [[False for _ in range(n)] for _ in range(n)]
 for i in range(n):
     tmp = list(map(str, input().rstrip('\n')))
     for j in range(len(tmp)):
@@ -21,11 +20,9 @@ for i in range(n):
     boards.append(tmp)
 while q:
     cx, cy = q.popleft()
-    cnt = 0
     for i in range(9):
         nx = cx+dx[i]
         ny = cy+dy[i]
-        cnt+=1
         if 0<=nx<n and 0<=ny<n:
             if boards[nx][ny]!='#':
                 bomb[cx][cy] = min(bomb[cx][cy], boards[nx][ny])
@@ -36,7 +33,6 @@ while q:
             if 0<=nx<n and 0<=ny<n :
                 if boards[nx][ny]!='#' and boards[nx][ny]>0:
                     boards[nx][ny] -=1
- 
 res = 0
 for v in bomb:
     for k in v:
