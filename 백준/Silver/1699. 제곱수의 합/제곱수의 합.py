@@ -1,14 +1,32 @@
 import sys 
-input = sys.stdin.readline
+input = sys.stdin.readline 
 sys.setrecursionlimit(10**6)
-n = int(input())
-dp = [0 for _ in range(n + 1)]
-squrt = [i * i for i in range(1, 317)] #N의 맥시멈 100,000의 제곱근 = 316.n
-for i in range(1, n + 1):
-    s = []
-    for j in squrt:
-        if j > i:
+squres = []
+
+for i in range(1, int(100000**0.5)+1):
+    squres.append(i**2)
+def find(n):
+    l, r = 0, len(squres)-1
+    res = False
+    while l<=r:
+        if squres[l]+squres[r]==n:
+            res= True
             break
-        s.append(dp[i - j])
-    dp[i] = min(s) + 1
-print(dp[n])
+        elif squres[l]+squres[r]>n:
+            r-=1
+        else:
+            l+=1
+    return res
+def squre(a):
+    if int(a**0.5)==a**0.5:
+        return 1
+    if find(a):
+        return 2
+    for v in squres: 
+        if find(n-v):
+            return 3
+    else:
+        return 4
+    
+n = int(input())
+print(squre(n))
