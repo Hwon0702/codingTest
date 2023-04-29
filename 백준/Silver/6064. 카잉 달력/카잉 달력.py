@@ -1,6 +1,5 @@
 import sys
 input = sys.stdin.readline
-sys.setrecursionlimit(10**6)
 
 def calc(m, n, x, y):
     k = x 
