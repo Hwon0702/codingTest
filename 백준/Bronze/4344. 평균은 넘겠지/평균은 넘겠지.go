@@ -4,14 +4,23 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"strconv"
 	"strings"
 )
 
+var (
+	reader = bufio.NewReader(os.Stdin)
+	writer = bufio.NewWriter(os.Stdout)
+)
+
+func roundFloat(val float64, precision uint) float64 {
+	ratio := math.Pow(10, float64(precision))
+	return math.Round(val*ratio) / ratio
+}
 func main() {
-	reader := bufio.NewReader(os.Stdin)
-	writer := bufio.NewWriter(os.Stdout)
+	defer writer.Flush()
 	var num int
 	fmt.Fscanln(reader, &num)
 	for i := 0; i < num; i++ {
@@ -38,7 +47,8 @@ func main() {
 				overAvg++
 			}
 		}
-		fmt.Fprintf(writer, "%.3f%s\n", overAvg/float64(stdnum)*100, "%")
+		res := roundFloat(overAvg/float64(stdnum)*100, 3)
+		fmt.Fprintf(writer, "%.3f%s\n", res, "%")
 	}
 	writer.Flush()
 }
