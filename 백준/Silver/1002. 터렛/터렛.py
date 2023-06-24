@@ -5,12 +5,18 @@ import math
 tc = int(input())
 for _ in range(tc):
     x1, y1, r1, x2, y2, r2 = map(int, input().split())
-    dist = math.sqrt( math.pow(x1 - x2, 2) + math.pow(y1 - y2, 2))
-    if dist ==0 and r1==r2:
-        print(-1)
-    elif abs(r1-r2)==dist or r1+r2==dist:
+    r = ((x1 - x2)**2 + (y1 - y2)**2)**0.5
+    R = [r1, r2, r]
+
+    m=max(R)
+    R.remove(m)
+    if r1==0:
         print(1)
-    elif abs(r1-r2)<dist<(r1+r2):
-        print(2)
-    else:
+    elif r == 0 and r1 == r2:
+        print(-1)
+    elif r == r1 + r2 or m == sum(R):
+        print(1)
+    elif m > sum(R):
         print(0)
+    else:
+        print(2)
