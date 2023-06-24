@@ -18,7 +18,9 @@ func main() {
 		res = 0
 		fmt.Fscanf(reader, "%f %f %f %f %f %f\n", &x1, &y1, &r1, &x2, &y2, &r2)
 		dist = math.Sqrt(math.Pow(x1-x2, 2) + math.Pow(y1-y2, 2))
-		if dist == 0 && r1 == r2 {
+		if r1==0{
+		res = 1
+		} else if dist == 0 && r1 == r2 {
 			res = -1
 		} else if math.Abs(r1-r2) == dist || r1+r2 == dist {
 			res = 1
