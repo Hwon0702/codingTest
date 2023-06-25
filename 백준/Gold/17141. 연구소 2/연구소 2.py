@@ -1,60 +1,51 @@
-import sys 
-input = sys.stdin.readline 
-sys.setrecursionlimit(10**6)
-from itertools import combinations
+import sys
+input = sys.stdin.readline
 from collections import deque
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
+from itertools import combinations
+sys.setrecursionlimit(10**6)
 
-def find(start_list):
-    q = deque()
-    visited = [[-1 for _ in range(n)]for _ in range(n)]
-    cnt = 0
-    for v in start_list:
-        q.append(v)
-        visited[v[0]][v[1]]=0
+def bfs(q):
+    visited = [[False] * n for _ in range(n)]
+    for x, y in q:
+        visited[x][y] = True
+    time = -1
+    cnt = len(q)
     while q:
-        cx, cy = q.popleft()
-        for i in range(4):
-            nx = cx+dx[i]
-            ny = cy+dy[i]
-            if 0<=nx<n and 0<=ny<n and visited[nx][ny]==-1 and graph[nx][ny]!=1:
-                visited[nx][ny] = visited[cx][cy]+1
-                q.append([nx, ny])
-                cnt = max(cnt, visited[nx][ny])
-    for row in range(n):
-        for col in range(n):
-            if visited[row][col] ==-1 and graph[row][col] ==0:
-                return -1
-    return cnt
+        for _ in range(len(q)):
+            x, y = q.popleft()
+            for i in range(4):
+                nx, ny = x + dx[i], y + dy[i]
+                if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny] and not graph[nx][ny] == 1:
+                    visited[nx][ny] = True
+                    q.append((nx, ny))
+                    cnt += 1
+        time += 1
+    return cnt, time
 
-
-    #q.append(start_list)
-
-
+dx = [0, 0, -1, 1]
+dy = [1, -1, 0, 0]
 
 n, m = map(int, input().split())
 graph = []
 virus = []
+wall = 0
 for i in range(n):
-    tmp = list(map(int, input().split()))
-    for j in range(len(tmp)):
-        if tmp[j]==2:
-            virus.append([i, j])
-    graph.append(tmp)
-combination_list = list(combinations(virus, m))
-res =float('inf')
-min_v = -1
-for comb in combination_list:
-    a = find(comb)
-    if a==-1 and res!=-1:
-        continue
-    elif a==-1 and res ==float('inf'):
-        res = -1 
-    elif a!=-1 and res==-1:
-        res = a
-    else:
-        res = min(res, a)
-if res==float('inf'):
-    res = -1
-print(res)
+    a = list(map(int, input().split()))
+    for j in range(n):
+        if a[j] == 2:
+            virus.append([i,j])
+        elif a[j] == 1:
+            wall += 1
+    graph.append(a)
+
+min_count = float('inf')
+for virus_list in combinations(virus, m):
+    q = deque()
+    for v in virus_list:
+        q.append(v)
+    cnt, time = bfs(q)
+    if cnt + wall == n**2:
+        min_count = min(min_count, time)
+if min_count == float('inf'):
+    min_count = -1
+print(min_count)
