@@ -1,6 +1,5 @@
 import sys 
 input = sys.stdin.readline 
-sys.setrecursionlimit(10**6)
 tc = int(input())
 is_prime = [True for _ in range(1000001)] 
 is_prime[0]=False
