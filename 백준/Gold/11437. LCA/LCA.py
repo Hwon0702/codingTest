@@ -2,10 +2,10 @@ from collections import deque
 import sys
 input = sys.stdin.readline
 n = int(input())
-tree  = [[]for _ in range(n+1)]
-depth = [0] * (n+1)
-parant = [0] * (n+1)
-visited = [False] * (n+1)
+tree  = [[] for _ in range(n+1)]
+depth = [0 for _ in range(n+1)]
+parant = [0 for _ in range(n+1)]
+visited = [False for _ in range(n+1)]
 for _ in range(n-1):
     s,e = map(int, input().split())
     tree[s].append(e)
