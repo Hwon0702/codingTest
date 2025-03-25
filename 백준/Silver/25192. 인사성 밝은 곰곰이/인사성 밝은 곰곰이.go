@@ -23,7 +23,7 @@ func main() {
 		if s == "ENTER" {
 			m = make(map[string]bool)
 		} else {
-			if _, f := m[s]; !f {
+			if !m[s] {
 				m[s] = true
 				cnt++
 			}
