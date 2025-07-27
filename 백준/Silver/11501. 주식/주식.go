@@ -12,12 +12,10 @@ var (
 )
 
 func find(n int, stock []int) int {
-	for i, j := 0, len(stock)-1; i < j; i, j = i+1, j-1 {
-		stock[i], stock[j] = stock[j], stock[i]
-	}
-	max := stock[0]
+
+	max := stock[len(stock)-1]
 	sum := 0
-	for i := 1; i < n; i++ {
+	for i := n - 1; i >= 0; i-- {
 		if max < stock[i] {
 			max = stock[i]
 		} else {
